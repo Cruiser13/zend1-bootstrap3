@@ -479,3 +479,19 @@ $this->addElement('static', 'static', array(
 
 ### Other decorated elements
 The library also contains elements for decorators: `file`, `hidden`, `hash` and `captcha`.
+
+This does also contain HTML5 Input Types like the range element. Usage like this:
+
+```php
+$distanceinput = new Twitter_Bootstrap3_Form_Element_Range('distanceinput');
+$distanceinput->setAttrib('min','5')->setAttrib('max','50')->setAttrib('step','5');
+$distanceinput->setLabel('Distance in kilometers');
+$distanceinput->setDescription('Set the distance in kilometers here');
+```
+
+The other HTML5 Input Types are tel, url, date, time, datetime and datetimelocal.
+
+If you need to use HTML unescaped in labels or descriptions you can use this snippet:
+```php
+$distanceinput->getDecorator('description')->setOption('escape', false);
+```
