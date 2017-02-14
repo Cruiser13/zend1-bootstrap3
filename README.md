@@ -245,6 +245,28 @@ $this->addElement('checkbox', 'checkbox', array(
 ));
 ```
 
+#### One checkbox without hidden field (might come in handy if jquery or others are being used on name)
+
+```html
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="checkbox1" id="checkbox" value="checked Value">
+            Checkbox
+        </label>
+    </div>
+</div>
+```
+
+```php
+$this->addElement('checkbox', 'checkbox', array(
+    'label' => 'Checkbox',
+    'checkedValue' => 'checked Value',
+    'uncheckedValue' => 'unchecked Value',
+));
+$checkbox->setAttrib('disableHidden', true);
+```
+
 #### MultiCheckbox
 
 ```html
