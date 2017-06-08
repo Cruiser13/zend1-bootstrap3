@@ -179,6 +179,22 @@ This will give you the following output:
     </div>
 ```
 
+You can also use bootstrap addons on inputs. Something like this:
+```php
+
+		$message = new Zend_Form_Element_Textarea('message');
+		$message->setAttrib('addon_append','@');
+
+```
+
+will generate the following input group:
+
+```html
+    <div class="input-group">
+	<textarea name="message" id="message" class="form-control" rows="24" cols="80"></textarea><span class="input-group-addon">@</span>
+	</div>
+```
+
 
 ## Supported controls
 
