@@ -533,3 +533,9 @@ If you need to use HTML unescaped in labels or descriptions you can use this sni
 ```php
 $distanceinput->getDecorator('description')->setOption('escape', false);
 ```
+
+If you like using addons, use code like this:
+```php
+$field = new Twitter_Bootstrap3_Form_Element_DateTimeLocal('field');
+$field->setAttrib('addon_append','<span class="someclass"><i class="fa fa-calendar" aria-hidden="true"></i></span>');
+```
