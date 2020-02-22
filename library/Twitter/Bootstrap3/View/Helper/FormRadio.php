@@ -1,7 +1,7 @@
 <?php
 /**
  * Twitter Bootstrap v.3 Form for Zend Framework v.1
- * 
+ *
  * @category Forms
  * @package Twitter_Bootstrap3_View
  * @subpackage Helper
@@ -10,7 +10,7 @@
 
 /**
  * Helper to generate a set of radio button elements
- * 
+ *
  * @category Forms
  * @package Twitter_Bootstrap3_View
  * @subpackage Helper
@@ -40,7 +40,7 @@ class Twitter_Bootstrap3_View_Helper_FormRadio extends Zend_View_Helper_FormRadi
     {
         $info = $this->_getInfo($name, $value, $attribs, $options, $listsep);
         extract($info); // name, value, attribs, options, listsep, disable
-        
+
         $inline = false;
         if (array_key_exists('inline', $attribs)) {
             $inline = $attribs['inline'];
@@ -60,7 +60,7 @@ class Twitter_Bootstrap3_View_Helper_FormRadio extends Zend_View_Helper_FormRadi
         } else {
             $attribs[$bAttrib] = $bClass;
         }
-        
+
         // retrieve attributes for wrapper (prefixed with 'wrapper_' or 'wrapper')
         $wrapper_attribs = array();
         foreach ($attribs as $key => $val) {
@@ -129,12 +129,12 @@ class Twitter_Bootstrap3_View_Helper_FormRadio extends Zend_View_Helper_FormRadi
         $value = (array) $value;
 
         // Set up the filter - Alnum + hyphen + underscore
-        require_once 'Zend/Filter/PregReplace.php';
-        $pattern = @preg_match('/\pL/u', 'a') 
+        //require_once 'Zend/Filter/PregReplace.php';
+        $pattern = @preg_match('/\pL/u', 'a')
             ? '/[^\p{L}\p{N}\-\_]/u'    // Unicode
             : '/[^a-zA-Z0-9\-\_]/';     // No Unicode
         $filter = new Zend_Filter_PregReplace($pattern, "");
-        
+
         // add radio buttons to the list.
         foreach ($options as $opt_value => $opt_label) {
 
@@ -181,18 +181,18 @@ class Twitter_Bootstrap3_View_Helper_FormRadio extends Zend_View_Helper_FormRadi
                     . $this->getClosingBracket()
                     . (('append' == $labelPlacement) ? ' ' . $opt_label : '')
                     . '</label>';
-            
+
             if (0 < count($wrapper_attribs)) {
                 $radio = '<div'
                        . $this->_htmlAttribs($wrapper_attribs) . '>'
                        . $radio
                        . '</div>';
             }
-            
+
             // add to the array of radio buttons
             $list[] = $radio;
         }
-        
+
         // XHTML or HTML for standard list separator?
         if (!$this->_isXhtml() && false !== strpos($listsep, '<br />')) {
             $listsep = str_replace('<br />', '<br>', $listsep);
@@ -200,7 +200,7 @@ class Twitter_Bootstrap3_View_Helper_FormRadio extends Zend_View_Helper_FormRadi
 
         // done!
         $xhtml .= implode($listsep, $list);
-        
+
         return $xhtml;
     }
 }
